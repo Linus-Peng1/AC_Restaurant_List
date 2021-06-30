@@ -27,6 +27,18 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
   res.render('show', { restaurant: restaurant })
 })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword.trim()
+  const restaurants = restaurantList.results.filter(restaurant =>
+    restaurant.name.toLowerCase().includes(keyword.toLocaleLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase())
+  )
+  if (restaurants.length === 0) {
+    res.render('index', { keyword: keyword, searchResult: '<h3>沒有符合的餐廳</h3>' })
+  } else if (restaurants.length > 0)
+    res.render('index', { restaurants: restaurants, keyword: keyword })
+})
+
+
 // start and listen on Express server
 app.listen(port, () => {
   console.log(`express is running on http://localhost:${port}`)
