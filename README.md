@@ -20,7 +20,7 @@
 
 1. 開啟終端機(terminal)，利用 git clone 將專案下載至本機
 ```
-git clone https://github.com/Linus-Peng1/Restaurant_List.git
+git clone https://github.com/Linus-Peng1/AC_Restaurant_List.git
 ```
 2. 進入存放此專案資料夾
 ```
